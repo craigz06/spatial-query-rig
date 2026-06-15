@@ -1,0 +1,516 @@
+{
+  "scene": {
+    "title": "240 Ferguson Cove Loop - Upstairs Office",
+    "location": {
+      "gps": "35°36'60\"N 82°57'44\"W",
+      "address": "Clyde, NC 28721"
+    },
+    "room": {
+      "name": "Office (Upstairs Loft)",
+      "dimensions": {
+        "width_ft": 32,
+        "depth_ft": 16,
+        "height_ft": 9
+      },
+      "cardinal_orientation": {
+        "north": "guard rail (open to living room below)",
+        "south": "bruegel painting / door to bedroom",
+        "west": "exterior wall / porthole window",
+        "east": "exterior wall / deck beyond"
+      }
+    },
+    "coordinate_system": {
+      "origin": "SENTINEL RIG base (0, 0, 0)",
+      "x_axis": "West (-) to East (+) — RIG on east side, positive toward further east",
+      "y_axis": "South (-) to North (+) — RIG center-right, positive toward north wall",
+      "z_axis": "Floor (0) to Ceiling (+) — RIG mounted ~6ft high on desk",
+      "unit": "feet",
+      "note": "All coordinates relative to SENTINEL RIG at (0, 0, 0)"
+    },
+    "objects": [
+      {
+        "id": "rig",
+        "name": "SENTINEL RIG",
+        "type": "camera_rig",
+        "class": "beam_splitter_stereo_rig",
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 0.6,
+          "depth": 0.4,
+          "height": 0.3
+        },
+        "properties": {
+          "baseline_mm": 152,
+          "seam_x_pixels": 1052,
+          "ring_light": true,
+          "mounted": "above desk, east wall area"
+        }
+      },
+      {
+        "id": "porthole",
+        "name": "Porthole Window",
+        "type": "window",
+        "class": "circular_window",
+        "position": {
+          "x": -8.5,
+          "y": 5.2,
+          "z": 5.0
+        },
+        "dimensions": {
+          "diameter": 3.0
+        },
+        "properties": {
+          "wall": "west",
+          "view": "tree canopy",
+          "material": "glass",
+          "frame": "black_metal",
+          "ana_lum_anchor": "[0,0]+[0,2]~207"
+        }
+      },
+      {
+        "id": "liz_desk",
+        "name": "LIZ DESK (L-shape north-south arm)",
+        "type": "desk",
+        "class": "work_surface",
+        "position": {
+          "x": -7.5,
+          "y": 4.2,
+          "z": 2.5
+        },
+        "dimensions": {
+          "width": 4.5,
+          "depth": 2.0,
+          "height": 2.5
+        },
+        "properties": {
+          "material": "light wood",
+          "orientation": "north-south",
+          "user": "Liz",
+          "monitor_count": 1,
+          "attached": "green_file_cabinet below"
+        }
+      },
+      {
+        "id": "craig_desk",
+        "name": "CRAIG DESK (L-shape east-west arm)",
+        "type": "desk",
+        "class": "work_surface",
+        "position": {
+          "x": -3.5,
+          "y": 4.2,
+          "z": 2.5
+        },
+        "dimensions": {
+          "width": 9.5,
+          "depth": 2.0,
+          "height": 2.5
+        },
+        "properties": {
+          "material": "light wood",
+          "orientation": "east-west",
+          "user": "Craig",
+          "monitor_count": 2,
+          "primary_sco_zone": true,
+          "corner_return": "shared with liz_desk at (-7.5, 4.2)"
+        }
+      },
+      {
+        "id": "liz_chair",
+        "name": "Liz Chair",
+        "type": "chair",
+        "class": "office_chair",
+        "position": {
+          "x": -8.2,
+          "y": 2.8,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 2.5,
+          "depth": 2.5,
+          "height": 3.2
+        },
+        "properties": {
+          "user": "Liz",
+          "mobile": true
+        }
+      },
+      {
+        "id": "craig_chair",
+        "name": "Craig Chair",
+        "type": "chair",
+        "class": "office_chair",
+        "position": {
+          "x": -1.5,
+          "y": 3.0,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 2.5,
+          "depth": 2.5,
+          "height": 3.2
+        },
+        "properties": {
+          "user": "Craig",
+          "mobile": true
+        }
+      },
+      {
+        "id": "file_cabinet",
+        "name": "File Cabinet (green)",
+        "type": "storage",
+        "class": "lateral_filing_cabinet",
+        "position": {
+          "x": -8.0,
+          "y": 5.8,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 2.0,
+          "depth": 1.8,
+          "height": 2.2
+        },
+        "properties": {
+          "color": "dark olive green",
+          "location": "under liz_desk",
+          "drawers": 3
+        }
+      },
+      {
+        "id": "plant",
+        "name": "Peperomia Plant",
+        "type": "plant",
+        "class": "potted_plant",
+        "position": {
+          "x": 3.2,
+          "y": -2.0,
+          "z": 1.0
+        },
+        "dimensions": {
+          "width": 2.5,
+          "depth": 2.5,
+          "height": 3.0
+        },
+        "properties": {
+          "wall": "east",
+          "trailing_vine": true,
+          "wall_hook": "yes"
+        }
+      },
+      {
+        "id": "green_couch",
+        "name": "Green Couch",
+        "type": "furniture",
+        "class": "seating",
+        "position": {
+          "x": -4.5,
+          "y": -6.0,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 11.0,
+          "depth": 2.8,
+          "height": 2.5
+        },
+        "properties": {
+          "color": "olive green",
+          "material": "upholstered",
+          "pillows": "blue pillow (left)",
+          "items": "towel (center), guitar (right)"
+        }
+      },
+      {
+        "id": "guitar",
+        "name": "Guitar (Stratocaster)",
+        "type": "instrument",
+        "class": "electric_guitar",
+        "position": {
+          "x": 1.5,
+          "y": -6.2,
+          "z": 0.5
+        },
+        "properties": {
+          "location": "leaning on couch right side",
+          "color": "sunburst"
+        }
+      },
+      {
+        "id": "bruegel",
+        "name": "Bruegel Painting",
+        "type": "artwork",
+        "class": "framed_painting",
+        "position": {
+          "x": -4.5,
+          "y": -8.2,
+          "z": 4.5
+        },
+        "dimensions": {
+          "width": 10.5,
+          "depth": 0.1,
+          "height": 7.0
+        },
+        "properties": {
+          "title": "Hunters in the Snow",
+          "wall": "south",
+          "mounted": "above couch",
+          "frame": "brown wood",
+          "landmark": "primary visual reference"
+        }
+      },
+      {
+        "id": "door_bedroom",
+        "name": "Door to Bedroom",
+        "type": "door",
+        "class": "passage",
+        "position": {
+          "x": 2.5,
+          "y": -8.3,
+          "z": 3.5
+        },
+        "dimensions": {
+          "width": 2.8,
+          "depth": 0.05,
+          "height": 7.0
+        },
+        "properties": {
+          "wall": "south",
+          "leads_to": "bedroom (below office ceiling)"
+        }
+      },
+      {
+        "id": "music_stand",
+        "name": "Music Stand (red)",
+        "type": "furniture",
+        "class": "stand",
+        "position": {
+          "x": 1.8,
+          "y": -4.5,
+          "z": 1.2
+        },
+        "dimensions": {
+          "width": 1.5,
+          "depth": 1.2,
+          "height": 4.0
+        },
+        "properties": {
+          "color": "red",
+          "material": "metal"
+        }
+      },
+      {
+        "id": "piano",
+        "name": "Piano / Keyboard",
+        "type": "instrument",
+        "class": "keyboard",
+        "position": {
+          "x": 3.0,
+          "y": -3.2,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 2.0,
+          "depth": 1.2,
+          "height": 3.5
+        },
+        "properties": {
+          "wall": "east",
+          "color": "white body, black keys"
+        }
+      },
+      {
+        "id": "table",
+        "name": "Work Table (center)",
+        "type": "furniture",
+        "class": "work_surface",
+        "position": {
+          "x": -2.0,
+          "y": 0.5,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 6.5,
+          "depth": 1.8,
+          "height": 2.3
+        },
+        "properties": {
+          "material": "wood",
+          "contents": "papers, documents",
+          "location": "center room"
+        }
+      },
+      {
+        "id": "kneeling_chair",
+        "name": "Kneeling Chair",
+        "type": "chair",
+        "class": "specialty_seating",
+        "position": {
+          "x": -9.0,
+          "y": -2.5,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 2.2,
+          "depth": 1.6,
+          "height": 2.0
+        },
+        "properties": {
+          "material": "upholstered",
+          "location": "left of couch"
+        }
+      },
+      {
+        "id": "north_wall",
+        "name": "North Wall (Guard Rail)",
+        "type": "structure",
+        "class": "guard_rail",
+        "position": {
+          "x": -8.0,
+          "y": 8.0,
+          "z": 2.8
+        },
+        "dimensions": {
+          "width": 32.0,
+          "depth": 0.1,
+          "height": 0.9
+        },
+        "properties": {
+          "height_inches": 36,
+          "material": "black iron spindles",
+          "open_to": "living room below"
+        }
+      },
+      {
+        "id": "stair_opening",
+        "name": "Stair Opening (down)",
+        "type": "opening",
+        "class": "passage",
+        "position": {
+          "x": -3.5,
+          "y": 7.8,
+          "z": 0.0
+        },
+        "dimensions": {
+          "width": 3.5,
+          "depth": 2.5,
+          "height": 8.0
+        },
+        "properties": {
+          "wall": "north",
+          "leads_to": "downstairs",
+          "center_of_north_wall": true
+        }
+      },
+      {
+        "id": "east_window",
+        "name": "East Window (2-3048 TWIN)",
+        "type": "window",
+        "class": "double_hung_window",
+        "position": {
+          "x": 1.0,
+          "y": 2.5,
+          "z": 1.5
+        },
+        "dimensions": {
+          "width": 0.9,
+          "depth": 0.1,
+          "height": 3.0
+        },
+        "properties": {
+          "wall": "east",
+          "view": "deck / exterior"
+        }
+      },
+      {
+        "id": "west_window",
+        "name": "West Window (2-3048 TWIN)",
+        "type": "window",
+        "class": "double_hung_window",
+        "position": {
+          "x": -9.0,
+          "y": 2.5,
+          "z": 1.5
+        },
+        "dimensions": {
+          "width": 0.9,
+          "depth": 0.1,
+          "height": 3.0
+        },
+        "properties": {
+          "wall": "west",
+          "view": "exterior"
+        }
+      }
+    ],
+    "spatial_relationships": {
+      "adjacent": [
+        "liz_desk and craig_desk share corner at (-7.5, 4.2) — L-shaped configuration",
+        "green_couch and bruegel — couch below painting",
+        "couch and guitar — guitar leans on couch right",
+        "couch and kneeling_chair — chair left of couch"
+      ],
+      "contains": [
+        "liz_desk contains file_cabinet below",
+        "craig_desk contains monitors and rig above"
+      ],
+      "aligned": [
+        "liz_desk and liz_chair — user position",
+        "craig_desk and craig_chair — user position",
+        "bruegel and couch — vertical alignment (painting above)"
+      ]
+    },
+    "luminance_fingerprint": {
+      "measurement_grid": "3x3 cells from ANA stereo capture",
+      "anchor_point": "rig at (0,0,0)",
+      "session_1": {
+        "name": "bigger_20260613_135423",
+        "cells": [
+          {"id": "[0,0]", "value": 207.1, "location": "top-left porthole side"},
+          {"id": "[0,1]", "value": 163.8, "location": "top-center"},
+          {"id": "[0,2]", "value": 205.2, "location": "top-right rig side"},
+          {"id": "[1,0]", "value": 207.9, "location": "mid-left"},
+          {"id": "[1,1]", "value": 165.1, "location": "mid-center"},
+          {"id": "[1,2]", "value": 187.2, "location": "mid-right"},
+          {"id": "[2,0]", "value": 106.6, "location": "bot-left"},
+          {"id": "[2,1]", "value": 72.1, "location": "bot-center desk"},
+          {"id": "[2,2]", "value": 86.3, "location": "bot-right"}
+        ],
+        "delta_cov": 0.7037,
+        "h_disp_spread": 186.24,
+        "seam_x": 1059
+      },
+      "session_2": {
+        "name": "loccation_20260613_144629",
+        "cells": [
+          {"id": "[0,0]", "value": 200.2, "location": "top-left porthole side"},
+          {"id": "[0,1]", "value": 184.8, "location": "top-center"},
+          {"id": "[0,2]", "value": 233.5, "location": "top-right rig side"},
+          {"id": "[1,0]", "value": 192.2, "location": "mid-left"},
+          {"id": "[1,1]", "value": 130.5, "location": "mid-center"},
+          {"id": "[1,2]", "value": 137.1, "location": "mid-right"},
+          {"id": "[2,0]", "value": 123.2, "location": "bot-left"},
+          {"id": "[2,1]", "value": 121.1, "location": "bot-center desk"},
+          {"id": "[2,2]", "value": 136.6, "location": "bot-right"}
+        ],
+        "delta_cov": 1.413,
+        "h_disp_spread": 150.541,
+        "seam_x": 1052
+      }
+    },
+    "metadata": {
+      "version": "1.0",
+      "ground_truth_sources": [
+        "IMG_4632 — Craig hand sketch",
+        "IMG_4633 — photo of office from photographer position",
+        "IMG_4629 — architect floor plan (loft sheet)",
+        "IMG_4630 — architect floor plan (entry level)",
+        "office_cognitive_map_v2_drawio.xml — Craig's edited draw.io"
+      ],
+      "created": "2026-06-13",
+      "last_updated": "2026-06-13",
+      "note": "RIG at (0,0,0) is the coordinate origin. All positions relative to SENTINEL RIG base."
+    }
+  }
+}
