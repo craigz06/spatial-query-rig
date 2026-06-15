@@ -6,6 +6,7 @@ https://raw.githubusercontent.com/craigz06/spatial-query-rig/main/README.md
 
 # RIG
 https://raw.githubusercontent.com/craigz06/spatial-query-rig/main/rig/specifications.md
+https://raw.githubusercontent.com/craigz06/spatial-query-rig/main/rig/craig.md
 https://raw.githubusercontent.com/craigz06/spatial-query-rig/main/rig/session_start.md
 https://raw.githubusercontent.com/craigz06/spatial-query-rig/main/rig/office_scene_graph.json
 https://raw.githubusercontent.com/craigz06/spatial-query-rig/main/rig/craig_office_map_v2.drawio.xml
