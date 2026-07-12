@@ -38,7 +38,7 @@ reference, contextual relevance, resolution of ambiguity.
 
 ## The Rig
 
-The Sentinel — a beam-splitter stereo camera at 152mm baseline 
+The Sentinel — twin global shutter stereo cameras at 152mm baseline 
 mounted on a motorized pan/tilt, capturing 1920x1080 stereo 
 frames from a fixed known environment in  Clyde, North Carolina.
 

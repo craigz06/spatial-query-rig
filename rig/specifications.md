@@ -10,7 +10,7 @@
 
 ![The Rig](rig_v1.PNG)
 
-*First-generation beam-splitter stereo camera rig on SCONPHO M-6 pan/tilt mount.
+*Twin global shutter stereo camera rig on SCONPHO M-6 pan/tilt mount.
 Hand-fabricated steel frame, front-surface mirrors, 152mm baseline. Clyde NC, 2026.*
 
 ---
@@ -19,9 +19,9 @@ Hand-fabricated steel frame, front-surface mirrors, 152mm baseline. Clyde NC, 20
 
 | Component | Specification |
 |-----------|---------------|
-| Configuration | Beam-splitter stereo camera |
+| Configuration | Twin global shutter stereo cameras |
 | Baseline | 152mm |
-| Camera | Logitech Brio 101 |
+| Camera | 2x ELP AR0234 Global Shutter USB Camera Module, 1080p, 90fps, 120° no-distortion lens, MJPEG/YUY2, USB2.0 UVC |
 | Mount | SCONPHO M-6 motorized pan/tilt |
 | Capture resolution | 1920x1080 stereo |
 | Processing | Mac Mini M4 Pro |
@@ -61,7 +61,7 @@ status is noted honestly.
 
 - **Stereo calibration accuracy:** OpenCV reprojection error RMS — to be recorded at next calibration run
 - **Pan/tilt angular resolution:** degrees/step — pending SCONPHO M-6 specification
-- **Depth estimation range:** ~0.3m–3.0m (analytical estimate at 152mm baseline, Brio 101 lens)
+- **Depth estimation range:** ~0.3m–3.0m (analytical estimate at 152mm baseline, ORIGINALLY calculated for Brio 101 lens — NEEDS RECALCULATION for ELP AR0234's 120° wide-angle lens, which has a different field of view and will shift this range)
 - **Temporal persistence interval:** minimum session gap before re-anchoring required
 - **Environmental state representation:** per-session depth fingerprint + luminance grid (format and resolution to be formalized)
 - **Query types supported:** spatial localization, room-state change detection, identity-grounded session continuity

@@ -172,9 +172,9 @@ system. Everything built under this name carries that load.
 1. **ANA+SCO batch validation** — FaceForensics++ corpus, targeting N=200
 2. **HALexa 9000 audio upgrade** — LOC, Fosi amp, full-range speaker, AIPI Lite 
    with Server personality. Second system on Forebears Ark next to desk.
-3. **Sentinel rig / DCI pipeline** — Stereo mirror beam-splitter, 3D video + 
+3. **Sentinel rig / DCI pipeline** — Twin global shutter stereo cameras, 3D video + 
    audio + transcript capture for real-time AI session grounding
-4. **SCONPHO M-6 Pan Tilt mount** — Pan/tilt servo base for Brio 101, auto 
+4. **SCONPHO M-6 Pan Tilt mount** — Pan/tilt servo base for twin ELP AR0234 global shutter cameras, auto 
    tracking or manual control
 5. **Bathroom addition** — Completed. Attic, Clyde NC.
 
