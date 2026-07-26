@@ -8,12 +8,20 @@ correspondences = {
     "liz_monitor_top_left":    ((205, 114), (607, 233)),
     "couch_far_end_armrest":   ((719, 415), (80, 310)),
     "stair_opening_centroid":  ((782, 600), (385, 245)),
+    "rug_pinecone_panel":      ((510, 313), (372, 384)),
 }
 
 # liz_monitor_top_left uses the CRAIG DESK box's top-left corner in the
 # floor plan as a proxy -- the plan doesn't draw individual monitors, only
 # the desk footprint, so this is an approximation of where the left
 # monitor sits.
+#
+# rug_pinecone_panel uses the plan's "RUG" text label as a proxy for the
+# plan-side point -- the plan doesn't draw the rug's outline either, only
+# a text label placed somewhere on/near it. This 5th point was added
+# specifically to break the near-collinearity of the other 4 points
+# (see FINDINGS.md), since it sits at plan x=510, well off the x~719-782
+# line the other points cluster around.
 
 # out-of-plane points, NOT used in the fit (wall-height features) -- for
 # sanity-checking only, expected to reproject poorly since homography
@@ -75,7 +83,7 @@ reproj = apply_h(H, plan_pts)
 errs = np.linalg.norm(reproj - photo_pts, axis=1)
 for name, pred, actual, err in zip(correspondences.keys(), reproj, photo_pts, errs):
     print(f"  {name:28s} predicted={pred.round(1)} actual={actual} err={err:.2f}px")
-print(f"  RMS error: {np.sqrt((errs**2).mean()):.3f}px  (expected ~0, exact 4-pt fit)")
+print(f"  RMS error: {np.sqrt((errs**2).mean()):.3f}px")
 
 print()
 print("Out-of-plane validation point (porthole, on wall not floor):")
@@ -84,5 +92,7 @@ for name, (plan_xy, _) in validation_points.items():
     print(f"  {name}: plan={plan_xy} -> predicted photo={pred.round(1)}"
           f"  (visually, porthole is at ~(700,110) in photo -- large mismatch expected, confirms plane-only validity)")
 
-np.save("/Users/elizabethward/Claude/spatial-query-rig/rig/analysis/H_plan_to_photo.npy", H)
-np.save("/Users/elizabethward/Claude/spatial-query-rig/rig/analysis/H_photo_to_plan.npy", Hinv)
+import os
+_here = os.path.dirname(os.path.abspath(__file__))
+np.save(os.path.join(_here, "H_plan_to_photo.npy"), H)
+np.save(os.path.join(_here, "H_photo_to_plan.npy"), Hinv)
