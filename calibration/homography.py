@@ -1,33 +1,53 @@
 import numpy as np
 
 # Point correspondences: floor-plane landmarks, picked from
-# office_floor_plan.png (plan) and rig_view.png (photo).
+# office_floor_plan_v2.png (plan, rendered from office_floor_plan_v2.svg
+# at 1910x2436) and rig_view.png (photo).
 # Format: name -> (plan_xy, photo_xy)
 correspondences = {
-    "couch_near_end_armrest":  ((719, 161), (292, 285)),
-    "liz_monitor_top_left":    ((205, 114), (607, 233)),
-    "couch_far_end_armrest":   ((719, 415), (80, 310)),
-    "stair_opening_centroid":  ((782, 600), (385, 245)),
-    "rug_pinecone_panel":      ((510, 313), (372, 384)),
+    "couch_near_end_armrest":  ((1411, 1256), (292, 285)),
+    "liz_monitor_top_left":    ((130, 1143), (607, 233)),
+    "couch_far_end_armrest":   ((1411, 1885), (80, 310)),
+    "stair_opening_centroid":  ((1571, 2335), (385, 245)),
+    "rug_center":              ((894, 1629), (372, 384)),
 }
 
-# liz_monitor_top_left uses the CRAIG DESK box's top-left corner in the
-# floor plan as a proxy -- the plan doesn't draw individual monitors, only
-# the desk footprint, so this is an approximation of where the left
-# monitor sits.
+# Plan-side coordinates were derived from office_floor_plan_v2.svg's
+# embedded drawio model (exact vector shape geometry), converted to pixel
+# space via a least-squares affine fit (scale ~2.0, matches the SVG being
+# rendered at 2x its 955x1218 viewBox) calibrated against 3 independent
+# reference boxes (craig desk, sentinel rig, green couch) -- all 3 matched
+# their known width/height aspect ratios to within ~1%. See
+# rsvg_verify.png-style checks in the session for validation; the
+# transform is:
+#   pixel_x = 1.9994 * model_x + 2071.24
+#   pixel_y = 1.9648 * model_y + 804.30
 #
-# rug_pinecone_panel uses the plan's "RUG" text label as a proxy for the
-# plan-side point -- the plan doesn't draw the rug's outline either, only
-# a text label placed somewhere on/near it. This 5th point was added
-# specifically to break the near-collinearity of the other 4 points
-# (see FINDINGS.md), since it sits at plan x=510, well off the x~719-782
-# line the other points cluster around.
+# liz_monitor_top_left uses the CRAIG DESK box's top-left corner as a
+# proxy -- the plan draws the desk footprint, not individual monitors.
+#
+# rug_center uses the *overall rug bounding box center* on the plan side
+# (now that v2 draws the actual rug artwork/outline, not just a text
+# label) and the *pinecone panel* on the photo side (verified by marked
+# crop) -- these are both "roughly central on the rug" but not the exact
+# same sub-feature, since the rug's true bottom edge is cut off by the
+# photo's frame and its exact pattern position could not be reliably
+# resolved in the small plan graphic (occluded by FOV-cone overlay lines).
 
-# out-of-plane points, NOT used in the fit (wall-height features) -- for
-# sanity-checking only, expected to reproject poorly since homography
-# assumes a single plane (the floor).
+# out-of-plane / cross-check points, NOT used in the fit -- for
+# sanity-checking only. porthole is a wall-height feature (expected to
+# reproject poorly, confirms plane-only validity); the rest are other
+# floor-level plan landmarks (also derived from the SVG model via the
+# transform above) used to check whether the fit generalizes beyond the
+# 5 points actually used.
 validation_points = {
-    "porthole_center": ((202, 584), None),
+    "porthole_center":   ((123, 2258), None),
+    "craig_chair":       ((402, 1413), None),
+    "liz_chair":         ((517, 1708), None),
+    "file_cabinet":      ((587, 1880), None),
+    "kneeling_chair":    ((1202, 2187), None),
+    "guard_rail_left":   ((292, 2278), None),
+    "guard_rail_right":  ((1411, 2278), None),
 }
 
 def normalize(pts):
@@ -86,11 +106,10 @@ for name, pred, actual, err in zip(correspondences.keys(), reproj, photo_pts, er
 print(f"  RMS error: {np.sqrt((errs**2).mean()):.3f}px")
 
 print()
-print("Out-of-plane validation point (porthole, on wall not floor):")
+print("Out-of-sample check (other known plan landmarks, not used in the fit):")
 for name, (plan_xy, _) in validation_points.items():
     pred = apply_h(H, [plan_xy])[0]
-    print(f"  {name}: plan={plan_xy} -> predicted photo={pred.round(1)}"
-          f"  (visually, porthole is at ~(700,110) in photo -- large mismatch expected, confirms plane-only validity)")
+    print(f"  {name:20s} plan={plan_xy} -> predicted photo={pred.round(1)}")
 
 import os
 _here = os.path.dirname(os.path.abspath(__file__))
