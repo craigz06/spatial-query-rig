@@ -533,8 +533,8 @@ def run_camera_pipeline():
     frame_width = 1920
     frame_height = 1080
     encoder_fps = 30.0
-    cache_video_filename = "dci_working_cache.mp4"
-    cache_audio_filename = "dci_working_cache.wav"
+    cache_video_filename = os.path.join(_DCI_DIR, "dci_working_cache.mp4")
+    cache_audio_filename = os.path.join(_DCI_DIR, "dci_working_cache.wav")
     window_name = "Grounded Observer - Live Stream Monitor"
 
     print("=================================================================")
@@ -665,9 +665,9 @@ def run_camera_pipeline():
                     user_given_name = input("Filename (ENTER for default): ").strip() or "dci_sequence"
                     user_given_name = user_given_name.replace(" ", "_")
                     time_suffix = time.strftime("%Y%m%d_%H%M%S")
-                    final_video_name = f"{user_given_name}_{time_suffix}.mp4"
-                    final_audio_name = f"{user_given_name}_{time_suffix}.wav"
-                    final_srt_name = f"{user_given_name}_{time_suffix}.srt"
+                    final_video_name = os.path.join(_DCI_DIR, f"{user_given_name}_{time_suffix}.mp4")
+                    final_audio_name = os.path.join(_DCI_DIR, f"{user_given_name}_{time_suffix}.wav")
+                    final_srt_name = os.path.join(_DCI_DIR, f"{user_given_name}_{time_suffix}.srt")
 
                     if os.path.exists(cache_video_filename):
                         if AUDIO_AVAILABLE and os.path.exists(cache_audio_filename):
@@ -724,14 +724,18 @@ def run_camera_pipeline():
                         else:
                             print(">> No object-comparison result (see messages above).")
 
-                    print()
-                    print("=" * 60)
-                    print(f"COMPLETE BUNDLE: {user_given_name}_{time_suffix}")
-                    print("=" * 60)
-                    print(f"  DCI media : .mp4 / .wav / .srt")
-                    print(f"  Story log : {RUNNING_STORY_PATH}")
-                    print(f"  Objects   : {KNOWN_OBJECTS_PATH}")
-                    print()
+                        print()
+                        print("=" * 60)
+                        print(f"COMPLETE BUNDLE: {user_given_name}_{time_suffix}")
+                        print("=" * 60)
+                        print(f"  DCI media : .mp4 / .wav / .srt")
+                        print(f"  Story log : {RUNNING_STORY_PATH}")
+                        print(f"  Objects   : {KNOWN_OBJECTS_PATH}")
+                        print()
+                    else:
+                        print()
+                        print("[ERROR] No video was recorded — nothing saved.")
+                        print()
 
                     is_recording = False
                     is_paused = False
@@ -740,7 +744,7 @@ def run_camera_pipeline():
 
             elif key == ord(' '):
                 snap_time = time.strftime("%Y%m%d_%H%M%S")
-                snap_filename = f"dci_frame_{snap_time}.png"
+                snap_filename = os.path.join(_DCI_DIR, f"dci_frame_{snap_time}.png")
                 cv2.imwrite(snap_filename, frame, [int(cv2.IMWRITE_PNG_COMPRESSION), 0])
                 print(f"Snapshot: {snap_filename}")
 
