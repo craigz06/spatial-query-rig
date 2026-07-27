@@ -3,11 +3,19 @@
 Title: DCI - Direct Camera Interface
 Frame Grabber, Audio-Muxed Recorder, Auto-Transcriber, Claude Object Tracker
 
-Script Revision: v2.0.0
-Date: July 26, 2026
+Script Revision: v3.0.0
+Date: July 27, 2026
 Author: Craig C. Cline / seeitwith.org
 AI co-author: Claude (Anthropic)
 Patent: US Provisional #64/056,727
+
+Revision Notes (v2.0.0 -> v3.0.0):
+Version bump only, no functional changes. Numbered v3.0.0 instead of
+continuing the v2.x line to avoid collision with an earlier, unrelated
+local v2.11 series that predates this codebase's v2.0.0 clean-break
+reset — that old v2.x numbering was never part of this repo's history,
+but reusing it here risked ambiguity against local archives. All
+content below carries forward unchanged from v2.0.0.
 
 Revision Notes (v1.14.0 -> v2.0.0):
 CLEAN BREAK. Dropped stereo seam detection, ANA physics invocation, the
