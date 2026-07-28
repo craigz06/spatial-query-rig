@@ -11,7 +11,7 @@
 ![The Rig](rig_v1.PNG)
 
 *Twin global shutter stereo camera rig on SCONPHO M-6 pan/tilt mount.
-Hand-fabricated steel frame, front-surface mirrors, 152mm baseline. Clyde NC, 2026.*
+Hand-fabricated steel frame, front-surface mirrors, 84mm baseline. Clyde NC, 2026.*
 
 ---
 
@@ -61,7 +61,7 @@ status is noted honestly.
 
 - **Stereo calibration accuracy:** OpenCV reprojection error RMS — to be recorded at next calibration run
 - **Pan/tilt angular resolution:** degrees/step — pending SCONPHO M-6 specification
-- **Depth estimation range:** ~0.3m–3.0m (analytical estimate at 152mm baseline, ORIGINALLY calculated for Brio 101 lens — NEEDS RECALCULATION for ELP AR0234's 120° wide-angle lens, which has a different field of view and will shift this range)
+- **Depth estimation range:** ~0.3m–3.0m (analytical estimate at 84mm baseline, ORIGINALLY calculated for Brio 101 lens — NEEDS RECALCULATION for ELP AR0234's 120° wide-angle lens, which has a different field of view and will shift this range)
 - **Temporal persistence interval:** minimum session gap before re-anchoring required
 - **Environmental state representation:** per-session depth fingerprint + luminance grid (format and resolution to be formalized)
 - **Query types supported:** spatial localization, room-state change detection, identity-grounded session continuity
