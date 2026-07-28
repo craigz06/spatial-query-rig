@@ -8,7 +8,8 @@
 
 ## Photo
 
-![The Rig](rig_v1.PNG)
+<img width="4032" height="3024" alt="2_camera rig" src="https://github.com/user-attachments/assets/3612e354-795e-4b7f-b714-83bf8091e5f1" />
+
 
 *Twin global shutter stereo camera rig on SCONPHO M-6 pan/tilt mount.
 Hand-fabricated steel frame, front-surface mirrors, 84mm baseline. Clyde NC, 2026.*
