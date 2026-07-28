@@ -20,7 +20,7 @@ Hand-fabricated steel frame, front-surface mirrors, 152mm baseline. Clyde NC, 20
 | Component | Specification |
 |-----------|---------------|
 | Configuration | Twin global shutter stereo cameras |
-| Baseline | 152mm |
+| Baseline | 84mm |
 | Camera | 2x ELP AR0234 Global Shutter USB Camera Module, 1080p, 90fps, 120° no-distortion lens, MJPEG/YUY2, USB2.0 UVC |
 | Mount | SCONPHO M-6 motorized pan/tilt |
 | Capture resolution | 1920x1080 stereo |
