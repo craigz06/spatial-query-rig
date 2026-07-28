@@ -1,0 +1,16 @@
+{
+  "objects": [
+    {
+      "object_id": "music_stand",
+      "name": "Music Stand (red)",
+      "class": "movable",
+      "position": {"x": 63, "y": 21, "z": 30}
+    },
+    {
+      "object_id": "waldo_cup",
+      "name": "Waldo Cup",
+      "class": "movable",
+      "position": {"x": 63, "y": 99, "z": 30}
+    }
+  ]
+}
